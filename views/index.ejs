@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <ul>
+      <% messages.forEach(msg => { %>
+      <li>
+        <p><%= msg.text%></p>
+        <p>- <%= msg.user%> <%= msg.added.toLocaleDateString('en-US')%></p>
+      </li>
+      <% }) %>
+    </ul>
+    <a href="/new">New</a>
+  </body>
+</html>
