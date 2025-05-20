@@ -12,10 +12,10 @@
       <% messages.forEach(msg => { %>
       <li>
         <p><%= msg.text%></p>
-        <p>- <%= msg.user%> <%= msg.added.toLocaleDateString('en-US')%></p>
       </li>
       <% }) %>
     </ul>
     <a href="/new">New</a>
+    <a href="/delete">Delete</a>
   </body>
 </html>
