@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const indexRouter = Router();
+const db = require('../db/queries');
 
+/* 
 const messages = [
   {
     text: 'Hi there!',
@@ -12,9 +14,11 @@ const messages = [
     user: 'Charles',
     added: new Date(),
   },
-];
+]; */
 
-indexRouter.get('/', (req, res) => {
+indexRouter.get('/', async (req, res) => {
+  const messages = await db.getAllMessages();
+  console.log(messages);
   res.render('index', { title: 'Mini message board', messages: messages });
 });
 
@@ -23,8 +27,14 @@ indexRouter.get('/new', (req, res) => {
 });
 
 indexRouter.post('/new', (req, res) => {
-  const { messageText, messageUser } = req.body;
-  messages.push({ text: messageText, user: messageUser, added: new Date() });
+  const { messageText } = req.body;
+  db.insertNewMessage(messageText);
+  // messages.push({ text: messageText, user: messageUser, added: new Date() });
+  res.redirect('/');
+});
+
+indexRouter.get('/delete', async (req, res) => {
+  db.deleteAllMessages();
   res.redirect('/');
 });
 
