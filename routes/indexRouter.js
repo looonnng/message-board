@@ -26,15 +26,15 @@ indexRouter.get('/new', (req, res) => {
   res.render('form', { title: 'New Message' });
 });
 
-indexRouter.post('/new', (req, res) => {
+indexRouter.post('/new', async (req, res) => {
   const { messageText } = req.body;
-  db.insertNewMessage(messageText);
+  await db.insertNewMessage(messageText);
   // messages.push({ text: messageText, user: messageUser, added: new Date() });
   res.redirect('/');
 });
 
 indexRouter.get('/delete', async (req, res) => {
-  db.deleteAllMessages();
+  await db.deleteAllMessages();
   res.redirect('/');
 });
 
