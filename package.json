@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node --watch app.js",
     "start": "node app.js",
-    "database": "node populatedb.js",
+    "database": "node db/populatedb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "pg": "^8.16.0"
