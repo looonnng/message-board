@@ -1,13 +1,23 @@
 body {
   background-color: #1d1d25;
   color: #fff;
+
+  display: grid;
+  place-content: center;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  display: block;
+  margin-block: 1rem;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+form input {
+  display: block;
+  margin-bottom: 1rem;
 }
